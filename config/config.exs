@@ -13,7 +13,11 @@ config :fruitstimator,
 # Configures the endpoint
 config :fruitstimator, FruitstimatorWeb.Endpoint,
   url: [host: "localhost"],
-  render_errors: [view: FruitstimatorWeb.ErrorView, accepts: ~w(html json), layout: false],
+  render_errors: [
+    view: FruitstimatorWeb.ErrorView,
+    accepts: ~w(html json),
+    layout: false
+  ],
   pubsub_server: Fruitstimator.PubSub,
   live_view: [signing_salt: "3iytApAb"]
 
@@ -46,6 +50,11 @@ config :logger, :console,
 
 # Use Jason for JSON parsing in Phoenix
 config :phoenix, :json_library, Jason
+
+# Guardian Auth Config
+config :fruitstimator, PhoenixFruitstimator.Guardian,
+  issuer: "phoenix_fruitstimator",
+  secret_key: System.get_env("auth_secret")
 
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.

@@ -32,3 +32,6 @@ fruitstimator-*.tar
 npm-debug.log
 /assets/node_modules/
 
+# Secrets
+.env
+**/*.secret.exs
